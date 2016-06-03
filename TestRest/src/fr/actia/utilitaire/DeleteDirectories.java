@@ -1,0 +1,23 @@
+package fr.actia.utilitaire;
+
+import java.io.File;
+
+
+public class DeleteDirectories {
+
+	public static void main(String[] args) {
+		
+		File myFile = new File("/home/yassine/Developpement/Repositories/Bonita_REST/TestRest/tmp/ticket_9/final/context.xml");
+		File myFolder = null;
+		
+		if(myFile.exists())
+		{
+			myFolder = myFile.getParentFile();
+		}
+		
+		myFile.delete();
+		myFolder.delete();
+		
+	}
+
+}

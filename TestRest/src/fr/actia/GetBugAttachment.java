@@ -20,9 +20,9 @@ public class GetBugAttachment {
 
 	public static void main(String[] args) throws IOException, IOException, JSONException, SAXException {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
-	       
+	       int idBug = 10;
         try {  
-        	HttpGet httpget = new HttpGet("https://das01.actia.fr/bugzilla-caddie/rest.cgi/bug/4/attachment?login=yassine.yadine@actia.fr&password=caddie");
+        	HttpGet httpget = new HttpGet("https://das01.actia.fr/bugzilla-caddie/rest.cgi/bug/" + idBug + "/attachment?login=yassine.yadine@actia.fr&password=caddie");
         	//HttpGet httpget = new HttpGet("https://das01.actia.fr/bugzilla-caddie/rest.cgi/version");
   
             //System.out.println("Executing request " + httpget.getRequestLine());
@@ -52,8 +52,8 @@ public class GetBugAttachment {
             JSONObject jsoEntity = new JSONObject(responseBody);
             JSONObject jsoResult = jsoEntity.getJSONObject("result");   
             JSONObject jsoBugs = jsoResult.getJSONObject("bugs");
-            JSONArray jsaAttachments = jsoBugs.getJSONArray("4");
-            //System.out.println(jsaAttachments.toString(4));
+            JSONArray jsaAttachments = jsoBugs.getJSONArray(idBug+"");
+            System.out.println(jsaAttachments.getJSONObject(1).getString("file_name"));
             
             
             for(int i = 0; i < jsaAttachments.length(); i++)
@@ -63,9 +63,9 @@ public class GetBugAttachment {
             	//System.out.println(dataEncoded);
             	byte[] dataTraitement = Base64.decodeBase64(dataEncoded);
             	
-            	//la variable dataDecoded contient le DOM xml bien formé
+            	//la variable dataDecoded contient le DOM xml bien formï¿½
             	String dataDecoded = new String(dataTraitement);
-            	System.out.println(dataDecoded);
+            	//System.out.println(dataDecoded);
             	    
             }
            

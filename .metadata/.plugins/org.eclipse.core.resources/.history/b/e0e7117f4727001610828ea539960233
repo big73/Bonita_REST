@@ -1,0 +1,10 @@
+package fr.actia.utilitaire;
+
+public class DeleteDirectories {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,13 @@
+package fr.actia.utilitaire;
+
+public class AddListToList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<int> firstList = new ArrayList<int>();
+		
+
+	}
+
+}

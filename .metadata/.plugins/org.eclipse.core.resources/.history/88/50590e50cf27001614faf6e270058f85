@@ -1,0 +1,48 @@
+package fr.actia;
+
+import java.io.IOException;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class UpdateBZ {
+
+	public static void main(String[] args) throws JSONException, IOException {
+		
+		int idTicket = 11;
+
+		JSONObject jso = new JSONObject();
+		
+		JSONArray jsaIdsValue = new JSONArray();
+		jsaIdsValue.put(idTicket);
+		
+		String status = "RESOLVED";
+		String resolution = "FIXED";
+		
+		jso.put("ids", jsaIdsValue);
+		jso.put("status", status);
+		jso.put("resolution", resolution);
+		
+		//System.out.println(jso.toString(4));
+		//System.out.println(fluxXML.toString());
+		
+		//&product=TestProduct
+		HttpClient httpClient = HttpClientBuilder.create().build();
+		HttpPut request = new HttpPut("https://das01.actia.fr/bugzilla-caddie/rest.cgi/bug/" + idTicket + "?login=yassine.yadine@actia.fr&password=caddie");
+		StringEntity params =new StringEntity(jso.toString());
+		request.addHeader("content-type", "application/json");
+		request.addHeader("accept", "application/json");
+		request.setEntity(params);
+		HttpResponse response = httpClient.execute(request);
+		
+		System.out.println(response.getStatusLine());
+		
+	}
+
+}

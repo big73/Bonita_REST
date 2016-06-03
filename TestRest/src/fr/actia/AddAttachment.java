@@ -32,7 +32,7 @@ public class AddAttachment {
 		String contentType = "text/plain";
 				
 		//File file = new File("final\\data_updated_ticket_5.xml");
-		BufferedReader br = new BufferedReader(new FileReader(new File("C:\\Program Files\\BonitaBPMCommunity-7.0.0\\tmp\\ticket_5\\final\\data_updated_ticket_5.xml")));
+		BufferedReader br = new BufferedReader(new FileReader(new File("/home/yassine/Developpement/Repositories/Bonita_REST/TestRest/src/fr/actia/final/data_updated_ticket_5.xml")));
 		String line;
 		StringBuilder fluxXML = new StringBuilder();
 
@@ -52,6 +52,7 @@ public class AddAttachment {
 		System.out.println(jso.toString(4));
 		//System.out.println(fluxXML.toString());
 		
+		/*
 		HttpClient httpClient = HttpClientBuilder.create().build();
 		HttpPost request = new HttpPost("https://das01.actia.fr/bugzilla-caddie/rest.cgi/bug/3/attachment?login=yassine.yadine@actia.fr&password=caddie&product=TestProduct");
 		StringEntity params =new StringEntity(jso.toString());
@@ -61,6 +62,7 @@ public class AddAttachment {
 		HttpResponse response = httpClient.execute(request);
 		
 		System.out.println(response.getStatusLine());
+		*/
 	}
 
 }

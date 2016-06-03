@@ -1,0 +1,89 @@
+package fr.actia;
+
+import java.io.IOException;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class UpdateBZ {
+
+	public static void main(String[] args) throws JSONException, IOException {
+		
+		int idTicket = 13;
+		
+		
+		JSONObject jso = new JSONObject();
+		
+		JSONArray jsaIdsValue = new JSONArray();
+		jsaIdsValue.put(idTicket);
+		
+		String status = "IN_PROGRESS";
+		
+		
+		JSONObject add = new JSONObject();
+		JSONArray tabBonita = new JSONArray();
+		
+		tabBonita.put("funny");
+		tabBonita.put("qqch");
+		add.put("add", tabBonita);
+		
+		
+		/*/###############################/*
+		String resolution = "FIXED";
+		JSONObject comment = new JSONObject();
+		String bodyComment = "la raison de la modification";
+		boolean isPrivate = false;
+		comment.put("comment", bodyComment);
+		comment.put("is_private", isPrivate);		
+		jso.put("resolution", resolution);
+		jso.put("comment", comment);
+		//###############################*/
+		
+		//jso.put("keywords", add);
+		jso.put("ids", jsaIdsValue);
+		jso.put("status", status);
+		
+		System.out.println(jso.toString(4));
+		//System.out.println(fluxXML.toString());
+		
+		///*
+		HttpClient httpClient = HttpClientBuilder.create().build();
+		HttpPut request = new HttpPut("https://das01.actia.fr/bugzilla-caddie/rest.cgi/bug/" + idTicket + "?login=yassine.yadine@actia.fr&password=caddie&product=TestProduct");
+		StringEntity params = new StringEntity(jso.toString());
+		request.addHeader("content-type", "application/json");
+		request.addHeader("accept", "application/json");
+		request.setEntity(params);
+
+		 // Create a custom response handler
+        ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
+
+            @Override
+            public String handleResponse(
+                    final HttpResponse response) throws ClientProtocolException, IOException {
+                int status = response.getStatusLine().getStatusCode();
+                if (status >= 200 && status < 300) {
+                    HttpEntity entity = response.getEntity();
+                    return entity != null ? EntityUtils.toString(entity) : null;
+                } else {
+                    throw new ClientProtocolException("Unexpected response status: " + status);
+                }
+            }
+
+        };
+        String responseBody = httpClient.execute(request, responseHandler);
+		System.out.println(responseBody);
+		//*/
+		
+	}
+
+}

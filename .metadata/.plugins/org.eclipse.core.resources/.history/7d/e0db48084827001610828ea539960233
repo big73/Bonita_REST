@@ -1,0 +1,19 @@
+package fr.actia.utilitaire;
+
+import java.io.File;
+
+public class DeleteDirectories {
+
+	public static void main(String[] args) {
+		
+		File myFolder = new File("/home/yassine/Developpement/Repositories/Bonita_REST/TestRest/tmp/ticket_11/final/updated_11_server.xml");
+		
+		if(myFolder.exists())
+		{
+			System.out.println("existe");
+			myFolder.delete();
+		}
+
+	}
+
+}

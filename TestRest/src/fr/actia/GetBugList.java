@@ -56,25 +56,31 @@ public class GetBugList {
             for(int i = 0; i < jsaBugs.length(); i++)
             {
             	JSONObject jsoIterator = jsaBugs.getJSONObject(i);
+            	int id = jsoIterator.getInt("id"); 
+            	String whiteboard = jsoIterator.getString("whiteboard");
+            	
+            	if(whiteboard.isEmpty())
+            	{
+            		System.out.println("le bug : "+id+" n'a pas de whiteboard");
+            	}
+            	else
+            	{
+            		System.out.println(whiteboard);
+            	}
+            	/*
             	String status = jsoIterator.getString("status");
+            	int id = jsoIterator.getInt("id");            	
             	if(status.equals("IN_PROGRESS"))
             	{
+            		System.out.println(id);
             		collectionATraiter.put(jsoIterator);
-            	}
+            	}*/
             }
             
            //System.out.println(collectionATraiter.toString(4));
            //System.out.println(collectionATraiter.length());
            
-            String c0 = collectionATraiter.toString();
-            JSONArray jsa = new JSONArray(c0);
-            for(int i = 0; i < jsa.length(); i++)
-            {
-            	JSONObject jsoIndex = jsa.getJSONObject(i);
-            	int id = jsoIndex.getInt("id");
-            	String path = "tmp\\ticket_"+id;
-            	new File(path).mkdir();
-            }
+            
             
             
         } finally {

@@ -1,0 +1,18 @@
+package fr.actia.utilitaire;
+
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+
+public class DeleteDirectories {
+
+	public static void main(String[] args) {
+		
+		Path myFolder = new File("/home/yassine/Developpement/Repositories/Bonita_REST/TestRest/tmp/ticket_9/final").toPath();
+	
+		
+		Files.deleteIfExists(myFolder);
+	}
+
+}
