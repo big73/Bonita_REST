@@ -59,13 +59,22 @@ public class GetBugList {
             	int id = jsoIterator.getInt("id"); 
             	String whiteboard = jsoIterator.getString("whiteboard");
             	
-            	if(whiteboard.equals("Before Processing By Bonita"))
+            	if(whiteboard.isEmpty())
+            	{
+            		System.out.println("le bug : "+id+" n'a pas de whiteboard");
+            	}
+            	else
+            	{
+            		System.out.println(whiteboard);
+            	}
+            	/*
+            	String status = jsoIterator.getString("status");
+            	int id = jsoIterator.getInt("id");            	
+            	if(status.equals("IN_PROGRESS"))
             	{
             		System.out.println(id);
-            		whiteboard = " ";
-            		System.out.println(whiteboard.isEmpty());
-            	}
-            	
+            		collectionATraiter.put(jsoIterator);
+            	}*/
             }
             
            //System.out.println(collectionATraiter.toString(4));

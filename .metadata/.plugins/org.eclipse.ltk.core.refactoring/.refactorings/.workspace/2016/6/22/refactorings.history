@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;TestRest/Bonita_Process_BOS/addNode.pl&apos;" deleteContents="false" description="Delete resource &apos;TestRest/Bonita_Process_BOS/addNode.pl&apos;" element1="/TestRest/Bonita_Process_BOS/addNode.pl" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1464939349222"/>&#x0A;<refactoring comment="Delete resource &apos;TestRest/tmp&apos;" deleteContents="false" description="Delete resource &apos;TestRest/tmp&apos;" element1="/TestRest/tmp" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1464939397644"/>
+</session>

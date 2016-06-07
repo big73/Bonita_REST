@@ -62,8 +62,6 @@ public class GetBugList {
             	if(whiteboard.equals("Before Processing By Bonita"))
             	{
             		System.out.println(id);
-            		whiteboard = " ";
-            		System.out.println(whiteboard.isEmpty());
             	}
             	
             }

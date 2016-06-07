@@ -59,11 +59,9 @@ public class GetBugList {
             	int id = jsoIterator.getInt("id"); 
             	String whiteboard = jsoIterator.getString("whiteboard");
             	
-            	if(whiteboard.equals("Before Processing By Bonita"))
+            	if(whiteboard.equals("Before Processing Bi Bonita"))
             	{
             		System.out.println(id);
-            		whiteboard = " ";
-            		System.out.println(whiteboard.isEmpty());
             	}
             	
             }
