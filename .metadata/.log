@@ -79,3 +79,22 @@ Caused by: java.net.UnknownHostException: linux-vwqp: Nom ou service inconnu
 	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1295)
 	at java.net.InetAddress.getLocalHost(InetAddress.java:1471)
 	... 7 more
+!SESSION 2016-06-07 16:15:56.231 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.core 4 0 2016-06-07 16:22:08.933
+!MESSAGE An exception occurred during push on URI https://github.com/big73/Bonita_REST.git: Nothing to push.
+!STACK 0
+org.eclipse.jgit.errors.TransportException: Nothing to push.
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1197)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:197)
+	at org.eclipse.egit.ui.internal.push.PushWizard$PushJob.run(PushWizard.java:297)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-06-07 16:22:09.232
+!MESSAGE Can't connect to any repository: https://github.com/big73/Bonita_REST.git (Nothing to push.)
